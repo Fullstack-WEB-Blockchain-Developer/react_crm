@@ -124,10 +124,10 @@ export default function AppUserMenu<AppUserMenuProps>({
 
   return (
     <div style={styles.avatarDiv}>
-      <Avatar
+      {/* <Avatar
         src={require("../assets/img/avatar0.png")}
         style={styles.avatarIcon}
-      />
+      /> */}
       <span style={styles.avatarSpan}>
         <Typography style={styles.user} variant="inherit">
           {username}
