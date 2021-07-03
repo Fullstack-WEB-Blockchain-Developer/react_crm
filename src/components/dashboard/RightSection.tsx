@@ -50,9 +50,7 @@ export default function RightSection(props){
                 </Grid>
                 <Grid item xs={12} md={6}></Grid>
             </Grid> 
-            <Grid>
-                 <FullWidthTabs/>
-            </Grid>           
+            <FullWidthTabs/>
         </Paper>
         
     );
