@@ -73,10 +73,10 @@ export const thunkAuth = (
 ): ThunkAction<void, AppState, null, Action<string>> => async (dispatch) => {
   let response;
 
-  const { type, endpoint, method, data, filters } = apiAction;
+  const { type, endpoint, method, data } = apiAction;
   
   response = data;
-  if (type == SIGN_IN) {
+  if (type === SIGN_IN) {
     response = await login(endpoint, method, data);
   }
 

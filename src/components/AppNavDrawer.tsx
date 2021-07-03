@@ -1,6 +1,7 @@
 import React from "react";
+import clsx from 'clsx'
 import Drawer from "@material-ui/core/Drawer";
-import { makeStyles, createStyles } from "@material-ui/core/styles";
+import { makeStyles, createStyles, useTheme, Theme } from "@material-ui/core/styles";
 import { blue, common } from "@material-ui/core/colors";
 import AppUserMenu from "./AppUserMenu";
 import AppDrawerMenu from "./AppDrawerMenu";
@@ -8,15 +9,18 @@ import AppDrawerMenu from "./AppDrawerMenu";
 const blue600 = blue["900"];
 const drawerWidth = 250;
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: "flex",
     },
     drawerPaper: {
-      width: drawerWidth,
+      width: 50,
       backgroundColor: "rgba(227, 231, 232, 1)",
       overflow: "auto",
+      // width: theme.spacing(7) + 1,
+      // [theme.breakpoints.up('sm')]: {
+      //   width: theme.spacing(9) + 1,
     },
     user: {
       fontSize: 22,
@@ -28,6 +32,24 @@ const useStyles = makeStyles(() =>
       paddingTop: "0.2em",
       paddingBottom: "0.2em",
       fontSize: 16,
+    },
+    drawerOpen: {
+      width: drawerWidth,
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
+    drawerClose: {
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      overflowX: 'hidden',
+      width: theme.spacing(7) + 1,
+      [theme.breakpoints.up('sm')]: {
+        width: theme.spacing(9) + 1,
+      },
     },
   })
 );
@@ -73,10 +95,18 @@ export default function AppNavDrawer(props: Props) {
           <Drawer
             variant="persistent"
             anchor="left"
-            open={navDrawerOpen}
+            // open={navDrawerOpen}
+            open={true}
             onClose={handleDrawerToggle}
+            className={clsx(drawerStyle, {
+              [styles.drawerOpen]: !navDrawerOpen,
+              [styles.drawerClose]: navDrawerOpen,
+            })}
             classes={{
-              paper: styles.drawerPaper,
+              paper: clsx({
+                [styles.drawerOpen]: !navDrawerOpen,
+                [styles.drawerClose]: navDrawerOpen,
+              }),
             }}
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
@@ -86,12 +116,19 @@ export default function AppNavDrawer(props: Props) {
           </Drawer>
         ) : (
           <Drawer
+            className={clsx(drawerStyle, {
+              [styles.drawerOpen]: !navDrawerOpen,
+              [styles.drawerClose]: navDrawerOpen,
+            })}
             classes={{
-              paper: styles.drawerPaper,
+              paper: clsx({
+                [styles.drawerOpen]: !navDrawerOpen,
+                [styles.drawerClose]: navDrawerOpen,
+              }),
             }}
             variant="temporary"
             onClose={handleDrawerToggle}
-            open={navDrawerOpen}
+            // open={navDrawerOpen}
           >
             {drawer}
           </Drawer>
