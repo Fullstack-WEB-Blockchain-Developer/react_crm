@@ -3,18 +3,26 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
+import { InputBase, Button } from '@material-ui/core';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
+import AppsIcon from '@material-ui/icons/Apps';
 import SearchIcon from '@material-ui/icons/Search';
+import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
+const grey600 = grey["300"];
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
     },
-    menuButton: {
-      marginRight: theme.spacing(2),
+    bar:{
+      backgroundColor: grey600,
+      margin: "0.5em",
+      fontSize: 10,
+    },
+    button: {
+      margin: "3px",
+      borderRadius: "0 4px 0 4px",
     },
     title: {
       flexGrow: 1,
@@ -22,6 +30,10 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up('sm')]: {
         display: 'block',
       },
+    },
+    link: {
+      fontWeight: 300,
+      padding: "2px",
     },
     search: {
       position: 'relative',
@@ -62,33 +74,47 @@ const useStyles = makeStyles((theme: Theme) =>
         },
       },
     },
+    apps: {
+      color: "black",
+      margin: "3px",
+      justifyContent: "inherit",
+    },
   }),
 );
 
-export default function SearchAppBar() {
+export default function SearchTask() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
+    <div className={classes.root} >
+      <AppBar position="static" className={classes.bar} >
+        <Toolbar  variant="dense">
+          <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#20d8ff" }}>
+            Pending
+          </Button>
+          <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#dfd8ff" }}>
+            Scheduled
+          </Button>
+          <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#fff8ff" }}>
+            Replied
+          </Button>
+          <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#80d8ff" }}>
+            Accomplished
+          </Button >
+          {['Email', 'Call', 'SMS', 'Appt', 'Build', 'Note', 'Solid'].map((text, index) => (
+            <Button className={classes.link}  key={text}>
+              {text}
+            </Button>
+          ))}
+          <Button variant="contained" size="medium" className={classes.button} style={{ borderRadius: "4px" }}>
+            Creat leads
+          </Button>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Search Tasks"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -96,6 +122,12 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+          <IconButton
+            edge="end"
+            className={classes.apps}
+          >
+            <AppsIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>

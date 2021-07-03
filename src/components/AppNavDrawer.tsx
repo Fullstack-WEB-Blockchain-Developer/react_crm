@@ -14,14 +14,6 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: "flex",
     },
-    drawerPaper: {
-      width: 50,
-      backgroundColor: "rgba(227, 231, 232, 1)",
-      overflow: "auto",
-      // width: theme.spacing(7) + 1,
-      // [theme.breakpoints.up('sm')]: {
-      //   width: theme.spacing(9) + 1,
-    },
     user: {
       fontSize: 22,
       color: common.white,
@@ -35,21 +27,22 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerOpen: {
       width: drawerWidth,
+      backgroundColor: "rgba(227, 231, 232, 1)",
+      overflow: "auto",
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
       }),
     },
     drawerClose: {
+      backgroundColor: "rgba(227, 231, 232, 1)",
+      overflow: "auto",
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
       overflowX: 'hidden',
-      width: theme.spacing(7) + 1,
-      [theme.breakpoints.up('sm')]: {
-        width: theme.spacing(9) + 1,
-      },
+      width: 60,
     },
   })
 );

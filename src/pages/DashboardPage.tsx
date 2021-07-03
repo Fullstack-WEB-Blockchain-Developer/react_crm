@@ -10,8 +10,11 @@ import MonthlySales from "../components/dashboard/MonthlySales";
 import BrowserUsage from "../components/dashboard/BrowserUsage";
 import LineBarChart from "../components/dashboard/LineBarChart";
 import Data from "../data";
-import LeadsSidebar from '../components/leadsSidebar'
-import SearchAppBar from '../components/searchTask'
+
+import LeadsSidebar from '../components/dashboard/leadsSidebar'
+import SearchTask from '../components/dashboard/searchTask'
+import RightSection from '../components/dashboard/RightSection'
+
 import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
 import { Grid } from "@material-ui/core";
 
@@ -30,52 +33,43 @@ const styles = {
     display: "block",
   },
   container: {
-    marginTop: "3em",
+    marginTop: "-1em",
   },
   cell: {
     padding: "0.5em",
   },
-  content:{
-    paddingTop:60,
-    padding:20,
-  }
 };
 
 const DashboardPage = () => {
   return (
-    <div style={styles.content}>
-      <Grid style={styles.container} spacing={1}>
+    <>
+      <Grid container style={styles.container} spacing={1}>
         <Grid item style={styles.cell} xs={12} md={3} >
-          <LeadsSidebar/>
-          <Paper/>
-          <InfoBox
-            Icon={ShoppingCart}
-            spanBgColor={pink600}
-            title="Total Profit"
-            value="1500k"
-          />
+          {/* <LeadsSidebar/> */}
+          <RightSection data={Data.dashBoardPage.rightSection} />
         </Grid>
-        <Grid item style={styles.cell} xs={12} md={9}>
-          <Grid xs={12} >
-            <SearchAppBar/>
+        <Grid  container xs={12} md={9}>
+          <Grid item xs={12} style={styles.cell} >
+            <SearchTask/>
           </Grid>
-          <Grid spacing={1}>
-            <Grid >
+          <Grid container spacing={1} >
+            <Grid  xs={12} md={8}>
+              <InfoBox
+                Icon={Assessment}
+                spanBgColor={purple600}
+                title="Sales"
+                value="460"
+              />              
               <Paper></Paper>
             </Grid>
-            <Grid>
+            <Grid  xs={12} md={4}>
+              <RightSection data={Data.dashBoardPage.rightSection} />
             <Paper></Paper>
             </Grid>
           </Grid>
-          <InfoBox
-            Icon={Assessment}
-            spanBgColor={purple600}
-            title="Sales"
-            value="460"
-          />
         </Grid>
       </Grid>
-    </div>
+    </>
   );
 };
 

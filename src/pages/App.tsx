@@ -54,9 +54,8 @@ const useStyles = (navDrawerOpen: boolean, isSmallScreen: boolean) => {
       overflow: "auto",
     },
     content: {
-      margin: '50px 0px 0px 50px',
+      margin: '50px 0px 0px 70px',
       flexGrow: 1,
-      paddingLeft: 250,
     },
   };
 };
