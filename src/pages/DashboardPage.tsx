@@ -13,6 +13,8 @@ import Data from "../data";
 import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
 import { Grid } from "@material-ui/core";
 
+import RightSection from "../components/dashboard/RightSection";
+
 const cyan600 = cyan["600"];
 const pink600 = pink["600"];
 const purple600 = purple["600"];
@@ -81,6 +83,10 @@ const DashboardPage = () => {
         </Grid>
         <Grid item style={styles.cell} xs={12} md={6}>
           <BrowserUsage data={Data.dashBoardPage.browserUsage} />
+        </Grid>
+        <Grid item style={styles.cell} xs={12} md={9}></Grid>
+        <Grid item style={styles.cell} xs={12} md={3}>
+          <RightSection data={Data.dashBoardPage.rightSection} />
         </Grid>
       </Grid>
     </div>

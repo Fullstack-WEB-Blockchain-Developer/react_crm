@@ -95,6 +95,16 @@ const data = {
       { name: "Page D", uv: 1480, pv: 1200, amt: 1228 },
       { name: "Page E", uv: 1520, pv: 1108, amt: 1100 },
       { name: "Page F", uv: 1400, pv: 680, amt: 1700 }
+    ],
+    rightSection: [
+      { name: "Customer Id:", value: "0000000"},
+      { name: "Name:", value: "Jane Doe"},
+      { name: "Email:", value: "janedoe@gmail.com"},
+      { name: "Phone:", value: "123-456-7890"},
+      { name: "Source:", value: "iLead"},
+      { name: "lead Date:", value: "2021-05-17"},
+      { name: "lead Accept date:", value: "2021-05-17"},
+      { name: "Vehicle Model:", value: "Toyota"}
     ]
   }
 };
