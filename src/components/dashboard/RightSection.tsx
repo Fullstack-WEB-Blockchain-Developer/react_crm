@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     },
     bd: {
         border: '1px solid gray',
-        margin: '5px'
+        margin: '5px',
+        marginBottom: '0px'
     }
 }));
 
