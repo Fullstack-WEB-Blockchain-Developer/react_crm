@@ -28,18 +28,8 @@ interface AppNavBarProps {
 }
 // class Header extends React.Component {
 const AppNavBar: React.FC<AppNavBarProps> = ({ styles, handleDrawerToggle}) => {
-const handleClick = () => {
-    // window.open(
-    //   "https://github.com/harryho/react-crm",
-    //   undefined,
-    //   undefined,
-    //   false
-    // );
-  };
-
-  let style = useStyles(styles);
-
   
+  let style = useStyles(styles);
 
   return (
     <div>

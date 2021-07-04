@@ -8,21 +8,27 @@ import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles'
 import AppsIcon from '@material-ui/icons/Apps';
 import SearchIcon from '@material-ui/icons/Search';
 import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
-const grey600 = grey["300"];
+
+const cyan600 = cyan["600"];
+const pink600 = pink["600"];
+const purple600 = purple["600"];
+const orange600 = orange["600"];
+const grey600 = grey["600"];
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+      paddingLeft: "0.5em",
     },
     bar:{
-      backgroundColor: grey600,
-      margin: "0.5em",
+      backgroundColor: cyan600,
       fontSize: 10,
     },
     button: {
       margin: "3px",
       borderRadius: "0 4px 0 4px",
+      fontSize: 10,
     },
     title: {
       flexGrow: 1,
@@ -34,8 +40,10 @@ const useStyles = makeStyles((theme: Theme) =>
     link: {
       fontWeight: 300,
       padding: "2px",
+      fontSize: 10,
     },
     search: {
+      fontSize: 10,
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -50,11 +58,14 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     searchIcon: {
-      padding: theme.spacing(0, 2),
+      padding: theme.spacing(0, 1.5),
       height: '100%',
       position: 'absolute',
       pointerEvents: 'none',
       display: 'flex',
+      '&:focus': {
+        display: 'none',
+      },
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -66,11 +77,11 @@ const useStyles = makeStyles((theme: Theme) =>
       // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
       transition: theme.transitions.create('width'),
-      width: '100%',
+      width: '90%',
       [theme.breakpoints.up('sm')]: {
-        width: '12ch',
+        width: '50px',
         '&:focus': {
-          width: '20ch',
+          width: '100px',
         },
       },
     },
@@ -88,7 +99,7 @@ export default function SearchTask() {
   return (
     <div className={classes.root} >
       <AppBar position="static" className={classes.bar} >
-        <Toolbar  variant="dense">
+        <Toolbar  variant="dense" style={{paddingRight: 0}}>
           <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#20d8ff" }}>
             Pending
           </Button>
@@ -98,7 +109,8 @@ export default function SearchTask() {
           <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#fff8ff" }}>
             Replied
           </Button>
-          <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#80d8ff" }}>
+          <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#80d8ff",
+      width: "130px"}}>
             Accomplished
           </Button >
           {['Email', 'Call', 'SMS', 'Appt', 'Build', 'Note', 'Solid'].map((text, index) => (
@@ -106,7 +118,7 @@ export default function SearchTask() {
               {text}
             </Button>
           ))}
-          <Button variant="contained" size="medium" className={classes.button} style={{ borderRadius: "4px" }}>
+          <Button variant="contained" size="medium" className={classes.button} style={{ borderRadius: "4px", fontSize:10}}>
             Creat leads
           </Button>
           <div className={classes.search}>

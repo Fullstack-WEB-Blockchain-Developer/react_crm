@@ -33,7 +33,7 @@ const styles = {
     display: "block",
   },
   container: {
-    marginTop: "-1em",
+    // marginTop: "-1em",
   },
   cell: {
     padding: "0.5em",
@@ -43,17 +43,16 @@ const styles = {
 const DashboardPage = () => {
   return (
     <>
-      <Grid container style={styles.container} spacing={1}>
-        <Grid item style={styles.cell} xs={12} md={3} >
-          {/* <LeadsSidebar/> */}
-          <RightSection data={Data.dashBoardPage.rightSection} />
+      <Grid container style={styles.container} >
+        <Grid style={styles.cell} xs={12} md={3} >
+          <LeadsSidebar data={Data.dashBoardPage.rightSection} />
         </Grid>
-        <Grid  container xs={12} md={9}>
-          <Grid item xs={12} style={styles.cell} >
+        <Grid  xs={12} md={9}>
+          <Grid  xs={12}  >
             <SearchTask/>
           </Grid>
-          <Grid container spacing={1} >
-            <Grid  xs={12} md={8}>
+          <Grid container >
+            <Grid style={styles.cell} xs={12} md={8}>
               <InfoBox
                 Icon={Assessment}
                 spanBgColor={purple600}
@@ -62,9 +61,9 @@ const DashboardPage = () => {
               />              
               <Paper></Paper>
             </Grid>
-            <Grid  xs={12} md={4}>
+            <Grid xs={12} md={4} style={styles.cell} >
               <RightSection data={Data.dashBoardPage.rightSection} />
-            <Paper></Paper>
+              <Paper></Paper>
             </Grid>
           </Grid>
         </Grid>

@@ -1,57 +1,76 @@
-import React from 'react';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import React from "react";
+import Datepicker from "../Datepicker";
+import Paper from "@material-ui/core/Paper";
+import { List, ListItem, ListItemText, Grid, CssBaseline, Drawer } from "@material-ui/core";
+import FullWidthTabs from "../FullWidthTabs";
+import LeadCard from "./leadCard";
 
-const drawerWidth = 240;
+const useStyles = makeStyles((theme) => ({
+  demo: {
+    backgroundColor: theme.palette.background.paper,
+  },
+  title: {
+    margin: theme.spacing(4, 0, 2),
+  },
+  datepicker: {
+    margin: "5px",
+  },
+  card: {
+    margin: "5px",
+  },
+  bd: {
+    border: '1px solid gray',
+    margin: '5px'
+  },
+  paper: {
+    paddingBottom: 0,
+  },
+  list: {
+    margin: theme.spacing(2),
+  },
+}));
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-    },
-    drawer: {
-      width: drawerWidth,
-      flexShrink: 0,
-      zIndex:500,
-      whiteSpace: 'nowrap',
-    },
-    drawerPaper: {
-      width: drawerWidth,
-    },
-    // necessary for content to be below app bar
-    content: {
-      flexGrow: 1,
-      backgroundColor: theme.palette.background.default,
-      padding: theme.spacing(3),
-    },
-  }),
-);
+const theme = createMuiTheme({
+  typography: {
+    fontSize: 8,
+  },
+});
 
-export default function PermanentDrawerLeft() {
+export default function RightSection(props) {
   const classes = useStyles();
-
   return (
-    <div className={classes.root}>
+    <Paper variant="outlined" elevation={3} >
+      <Paper variant="outlined" className={classes.datepicker} >
+        <Datepicker />
+      </Paper>
+      {/* <Grid spacing={2} className={classes.bd}>
+              <Grid item xs={12} md={6}> */}
+
       <CssBaseline />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+      <Paper variant="outlined" className={classes.paper}>
+        <List className={classes.list}>
+          <LeadCard />
+          {/* {messages.map(({ id, primary, secondary, person }) => (
+            <React.Fragment key={id}>
+              {id === 1 && <ListSubheader className={classes.subheader}>Today</ListSubheader>}
+              {id === 3 && <ListSubheader className={classes.subheader}>Yesterday</ListSubheader>}
+              <ListItem button>
+                <ListItemAvatar>
+                  <Avatar alt="Profile Picture" src={person} />
+                </ListItemAvatar>
+                <ListItemText primary={primary} secondary={secondary} />
+              </ListItem>
+            </React.Fragment>
+          ))} */}
         </List>
-    </div>
+      </Paper>
+
+      {/* </Grid>
+              <Grid item xs={12} md={6}></Grid>
+          </Grid>  */}
+    </Paper>
+
   );
-}
+
+};

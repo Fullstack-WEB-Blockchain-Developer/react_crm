@@ -7,7 +7,6 @@ import FullWidthTabs from "../FullWidthTabs";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        maxWidth: 752,
     },
     demo: {
         backgroundColor: theme.palette.background.paper,
