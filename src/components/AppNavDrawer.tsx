@@ -73,7 +73,7 @@ export default function AppNavDrawer(props: Props) {
           <Drawer
             variant="persistent"
             anchor="left"
-            open={navDrawerOpen}
+            open={!navDrawerOpen}
             onClose={handleDrawerToggle}
             classes={{
               paper: styles.drawerPaper,

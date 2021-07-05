@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../styles.scss";
 // import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
-import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider as MuiThemeProvider, createStyles, makeStyles, useTheme, Theme } from "@material-ui/core/styles";
 import { Route, Redirect } from "react-router-dom";
 import AppNavBar from "../components/AppNavBar";
 import AppNavDrawer from "../components/AppNavDrawer";
@@ -23,8 +23,9 @@ import OrderListPage from "./OrderListPage";
 import ProductFormPage from "./ProductFormPage";
 import ProductListPage from "./ProductListPage";
 import AboutPage from "./AboutPage";
-import NotFoundPage from "./NotFoundPage";
+// import NotFoundPage from "./NotFoundPage";
 import ChangePasswordPage from "./ChangePasswordPage";
+import MaileInboxPage from "./MaileInboxPage";
 
 const isSmallsWindowScreen = () => {
   return window.innerWidth <= 600;
@@ -34,10 +35,11 @@ const drawerWidth = 250;
 const useStyles = (navDrawerOpen: boolean, isSmallScreen: boolean) => {
   return {
     appBar: {
+      zIndex: 1500,
       position: "fixed",
       top: 0,
       overflow: "hidden",
-      maxHeight: 58,
+      maxHeight: 45,
       minHeight: 0,
       width:
         navDrawerOpen && !isSmallScreen
@@ -76,10 +78,10 @@ interface AppState {
 }
 
 class App extends React.Component<AppProps, AppState> {
-  constructor(props) {
+  constructor(props: Readonly<AppProps>) {
     super(props);
     this.state = {
-      navDrawerOpen: !isSmallsWindowScreen(),
+      navDrawerOpen: isSmallsWindowScreen(),
       isSmallScreen: isSmallsWindowScreen(),
       showDashboard: false,
     };
@@ -164,46 +166,9 @@ class App extends React.Component<AppProps, AppState> {
     const showDashboard = pathname === "/" || pathname.endsWith("dashboard");
 
     return (
-      <MuiThemeProvider theme={themeDefault}>
-        <div>
-          {isAuthenticated && (
-            <div>
-              <AppNavBar
-                styles={appStlyes}
-                handleDrawerToggle={this.handleDrawerToggle.bind(this)}
-              ></AppNavBar>
-              <AppNavDrawer
-                drawerStyle={appStlyes.drawer}
-                navDrawerOpen={navDrawerOpen}
-                username={`${firstname} ${lastname}`}
-                onSignoutClick={this.signOut}
-                onChangePassClick={this.changePass}
-                handleDrawerToggle={this.handleDrawerToggle.bind(this)}
-                isSmallScreem={isSmallScreen}
-              />
-              <div style={appStlyes.content}>
-                {showDashboard && <DashboardPage />}
-                <Route exact path={`/customers`} component={CustomerListPage} />
-                <Route path={`/customer/:id`} component={CustomerFormPage} />
-                <Route path={`/newcustomer/`} component={CustomerFormPage} />
-                <Route exact path={`/orders`} component={OrderListPage} />
-                <Route path={`/order/:id`} component={OrderFormPage} />
-                <Route path={`/neworder/`} component={OrderFormPage} />
-                <Route exact path={`/products`} component={ProductListPage} />
-                <Route path={`/product/:id`} component={ProductFormPage} />
-                <Route path={`/newproduct`} component={ProductFormPage} />
-                <Route path={`/about`} component={AboutPage} />
-                <Route path="/changepass" component={ChangePasswordPage} />
-                {/* <Route path="/404" component={NotFoundPage} />
-                <Redirect to="/404" /> */}
-              </div>
-            </div>
-          )}
-          {!isAuthenticated && (
-            <LoginPage onSignInClick={(creds) => this.signIn(creds)} />
-          )}
-        </div>
-      </MuiThemeProvider>
+      <div>
+        <DashboardPage />
+      </div>
     );
   }
 }
