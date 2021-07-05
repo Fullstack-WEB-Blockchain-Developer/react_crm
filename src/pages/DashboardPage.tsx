@@ -16,7 +16,6 @@ import SearchTask from '../components/dashboard/searchTask'
 import RightSection from '../components/dashboard/RightSection'
 import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
 
-import RightSection from "../components/dashboard/RightSection";
 
 const cyan600 = cyan["600"];
 const pink600 = pink["600"];

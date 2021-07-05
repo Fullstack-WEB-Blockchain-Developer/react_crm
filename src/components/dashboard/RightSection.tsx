@@ -8,7 +8,7 @@ import PaperInfo from '../PaperInfo';
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
-    height:`calc(100% - 48px * 2)`,
+    // height:`calc(100% - 48px * 2)`,
   }
 }));
   

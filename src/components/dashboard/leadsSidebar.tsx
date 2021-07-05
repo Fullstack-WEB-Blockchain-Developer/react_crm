@@ -11,8 +11,8 @@ import LeadCard from "./leadCard";
 // const KEYS_TO_FILTERS = ['user.name', 'subject', 'dest.name']
 
 const useStyles = makeStyles((theme) => ({
-  demo: {
-    backgroundColor: theme.palette.background.paper,
+  root: {
+    padding: "0 0 10px 0",
   },
   title: {
     margin: theme.spacing(4, 0, 2),
@@ -45,7 +45,7 @@ export default function LeadSidebar(props) {
   const classes = useStyles();
   // const filteredEmails = emails.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
   return (
-    <Paper variant="outlined" elevation={3} >
+    <Paper variant="outlined" elevation={3} className={classes.root} >
       {/* <SearchInput className="search-input" onChange={this.searchUpdated} /> */}
       <SearchInput className={`${classes.search} search-input`}/>
       <Paper variant="outlined" className={classes.datepicker} >

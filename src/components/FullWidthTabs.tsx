@@ -67,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '0px',
     height: '320px',
     overflowY: 'scroll'
+  },
   tabPanelMargin: { 
     margin: '5px',
     overflowY: 'auto'
