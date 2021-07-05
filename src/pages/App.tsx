@@ -39,23 +39,23 @@ const useStyles = (navDrawerOpen: boolean, isSmallScreen: boolean) => {
       position: "fixed",
       top: 0,
       overflow: "hidden",
-      maxHeight: 45,
+      maxHeight: 48,
       minHeight: 0,
-      width:
-        navDrawerOpen && !isSmallScreen
-          ? `calc(100% - ${drawerWidth}px)`
-          : `100%`,
-      marginLeft: navDrawerOpen && isSmallScreen ? drawerWidth : 0,
+    // width:100,
+      //   navDrawerOpen && !isSmallScreen
+      //     ? `calc(100% - ${drawerWidth}px)`
+      //     : `100%`,
+      // marginLeft: navDrawerOpen && isSmallScreen ? drawerWidth : 0,
     },
     drawer: {
       width: isSmallScreen ? drawerWidth : 0,
-      // flexShrink: 0,
+      flexShrink: 0,
       overflow: "auto",
     },
     content: {
-      // margin: '10px 20px 20px 15px',
+      margin: '50px 0px 0px 60px',
       flexGrow: 1,
-      paddingLeft: navDrawerOpen && !isSmallScreen ? drawerWidth : 0,
+      height:"100%"
     },
   };
 };
@@ -166,9 +166,47 @@ class App extends React.Component<AppProps, AppState> {
     const showDashboard = pathname === "/" || pathname.endsWith("dashboard");
 
     return (
-      <div>
-        <DashboardPage />
-      </div>
+      <MuiThemeProvider theme={themeDefault}>
+        <div>
+          {isAuthenticated && (
+            <div>
+              <AppNavBar
+                styles={appStlyes}
+                handleDrawerToggle={this.handleDrawerToggle.bind(this)}
+              ></AppNavBar>
+              <AppNavDrawer
+                drawerStyle={appStlyes.drawer}
+                navDrawerOpen={navDrawerOpen}
+                username={`${firstname} ${lastname}`}
+                onSignoutClick={this.signOut}
+                onChangePassClick={this.changePass}
+                handleDrawerToggle={this.handleDrawerToggle.bind(this)}
+                isSmallScreem={isSmallScreen}
+              />
+              <div style={appStlyes.content}>
+                {showDashboard && <DashboardPage />}
+                <Route exact path={`/customers`} component={CustomerListPage} />
+                <Route path={`/customer/:id`} component={CustomerFormPage} />
+                <Route path={`/newcustomer/`} component={CustomerFormPage} />
+                <Route exact path={`/orders`} component={OrderListPage} />
+                <Route path={`/order/:id`} component={OrderFormPage} />
+                <Route path={`/neworder/`} component={OrderFormPage} />
+                <Route exact path={`/products`} component={ProductListPage} />
+                <Route path={`/product/:id`} component={ProductFormPage} />
+                <Route path={`/newproduct`} component={ProductFormPage} />
+                <Route path={`/about`} component={AboutPage} />
+                <Route path="/changepass" component={ChangePasswordPage} />
+                <Route exact path={`/mails`} component={MaileInboxPage} />
+                {/* <Route path="/404" component={NotFoundPage} />
+                <Redirect to="/404" /> */}
+              </div>
+            </div>
+          )}
+          {!isAuthenticated && (
+            <LoginPage onSignInClick={(creds) => this.signIn(creds)} />
+          )}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

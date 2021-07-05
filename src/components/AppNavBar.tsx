@@ -5,17 +5,20 @@ import { Tooltip, Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   title: {
     flexGrow: 1,
     color:"red",
-    height:'45px',
+    display:"inline",
+    fontWeight:"bold",
   },
   toolbar: {
     minHeight: 0,
-    height:45,
+    maxHeight:45,
+  },
+  button:{
+    backgroundColor: "white",
+    borderRadius: 0,
+    marginLeft:"-23px",
   },
 }));
 
@@ -25,33 +28,27 @@ interface AppNavBarProps {
 }
 // class Header extends React.Component {
 const AppNavBar: React.FC<AppNavBarProps> = ({ styles, handleDrawerToggle}) => {
-const handleClick = () => {
-    // window.open(
-    //   "https://github.com/harryho/react-crm",
-    //   undefined,
-    //   undefined,
-    //   false
-    // );
-  };
-
-  let style = useStyles(styles);
-
   
+  let style = useStyles(styles);
 
   return (
     <div>
       <AppBar position="fixed" style={styles.appBar}>
-        <Toolbar className={styles.toolbar}>
+        <Toolbar variant="dense" className={styles.toolbar}>
           <IconButton
             edge="start"
                onClick={handleDrawerToggle}
             color="inherit"
             aria-label="menu"
+            className={style.button}
           >
             <Typography variant="h4"  className={style.title}>
               S
             </Typography>
           </IconButton>
+          <Typography variant="h4" style={{paddingLeft:"5px"}} >
+            Drive
+          </Typography>
         </Toolbar>
       </AppBar>
     </div>

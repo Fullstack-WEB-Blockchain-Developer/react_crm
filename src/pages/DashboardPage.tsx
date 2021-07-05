@@ -3,6 +3,7 @@ import Assessment from "@material-ui/icons/Assessment";
 import Face from "@material-ui/icons/Face";
 import ThumbUp from "@material-ui/icons/ThumbUp";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
+import { Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Paper, Grid } from '@material-ui/core'
 import InfoBox from "../components/dashboard/InfoBox";
 import NewOrders from "../components/dashboard/NewOrders";
 import MonthlySales from "../components/dashboard/MonthlySales";
@@ -10,8 +11,10 @@ import BrowserUsage from "../components/dashboard/BrowserUsage";
 import LineBarChart from "../components/dashboard/LineBarChart";
 import Data from "../data";
 
+import LeadsSidebar from '../components/dashboard/leadsSidebar'
+import SearchTask from '../components/dashboard/searchTask'
+import RightSection from '../components/dashboard/RightSection'
 import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
-import { Grid } from "@material-ui/core";
 
 import RightSection from "../components/dashboard/RightSection";
 
@@ -25,34 +28,44 @@ const styles = {
   navigation: {
     fontSize: 15,
     fontWeight: 400, //TypographyStyle.fontWeightLight,
-    color: grey600,
+    color: "grey600",
     // paddingBottom: 15,
     display: "block",
   },
-  container: {
-    marginTop: "3em",
-  },
   cell: {
-    padding: "1em",
+    padding: "0.5em",
   },
-  content:{
-    paddingTop:60,
-    padding:20,
-  }
 };
 
 const DashboardPage = () => {
   return (
-    <div style={styles.content}>
-      <Grid container style={styles.container} spacing={3}>
-        <Grid item style={styles.cell} xs={12} sm={6} md={9} lg={9}></Grid>
-        <Grid item style={styles.cell} xs={12} sm={6} md={3} lg={3}>
-          <RightSection 
-            data1={Data.dashBoardPage.rightSection.information} 
-            data2={Data.dashBoardPage.rightSection.appointment} />
+    <>
+      <Grid container >
+        <Grid style={styles.cell} xs={12} md={3} >
+          <LeadsSidebar data={Data.dashBoardPage.rightSection} />
+        </Grid>
+        <Grid  xs={12} md={9}>
+          <Grid  xs={12}  >
+            <SearchTask/>
+          </Grid>
+          <Grid container style={{height: `calc(100% - 50px * 2)`}} >
+            <Grid style={styles.cell} xs={12} md={8}>
+              {/* <InfoBox
+                Icon={Assessment}
+                spanBgColor={purple600}
+                title="Sales"
+                value="460"
+              />               */}
+              <Paper></Paper>
+            </Grid>
+            <Grid xs={12} md={4} style={styles.cell} >
+              <RightSection data={Data.dashBoardPage.rightSection} />
+              <Paper></Paper>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
-    </div>
+    </>
   );
 };
 
