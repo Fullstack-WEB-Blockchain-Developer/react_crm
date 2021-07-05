@@ -1,5 +1,4 @@
 import React from 'react'
-
 import ReactHorizontalDatePicker from 'react-horizontal-strip-datepicker'
 import 'react-horizontal-strip-datepicker/dist/ReactHorizontalDatePicker.css'
 
@@ -13,6 +12,7 @@ const Datepicker = () => {
       selectedDay={onSelectedDay}
       enableScroll={true}
       enableDays={180}
+      enableDaysBefore={20}
     />
   )
 }

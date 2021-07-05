@@ -86,7 +86,9 @@ const DashboardPage = () => {
         </Grid>
         <Grid item style={styles.cell} xs={12} md={9}></Grid>
         <Grid item style={styles.cell} xs={12} md={3}>
-          <RightSection data={Data.dashBoardPage.rightSection} />
+          <RightSection 
+            data1={Data.dashBoardPage.rightSection.information} 
+            data2={Data.dashBoardPage.rightSection.appointment} />
         </Grid>
       </Grid>
     </div>
