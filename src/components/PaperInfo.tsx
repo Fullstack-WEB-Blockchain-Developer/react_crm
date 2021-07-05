@@ -7,6 +7,7 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 const useStyles = makeStyles((theme) => ({    
     bd: {
         margin: '5px',
+        backgroundColor: '#fff4fb'
     },
     typoPad: {
         paddingLeft: '10px'
