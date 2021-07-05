@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { Grid, IconButton, Button } from "@material-ui/core";
+import { Grid, IconButton, Button, Paper } from "@material-ui/core";
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -67,6 +67,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '0px',
     height: '320px',
     overflowY: 'scroll'
+  tabPanelMargin: { 
+    margin: '5px',
+    overflowY: 'auto'
   },    
 }));
 const style = { 
@@ -81,7 +84,7 @@ const GlobalCss = withStyles({
         '.MuiButton-root': {
             padding: '2px',
             lineHeight: '1',
-            borderRadius: '0px',
+            // borderRadius: '0px',
             textTransform: 'capitalize'
         }
     }
@@ -99,30 +102,30 @@ export default function FullWidthTabs(props) {
 
   return (
     <div className={classes.root}>
-        <Grid className={classes.tabPanelBorder}>
+        <Paper elevation={5} className={classes.tabPanelMargin}>
             <TabPanel value={value} index={0}>
               <GlobalCss />
-              <Button variant="outlined" fullWidth={true}>
+              <Button variant="contained" fullWidth={true}>
                 Schedule an Email
               </Button>
-              <Button variant="outlined" fullWidth={true}>
+              <Button variant="contained" fullWidth={true}>
                 Build & Price-Send Deal
               </Button>
               <CustomizedTimeline data={props.data} />
             </TabPanel>
             <TabPanel value={value} index={1}>
               <GlobalCss />
-              <Button variant="outlined" fullWidth={true}>
+              <Button variant="contained" fullWidth={true}>
                 Financing Information
               </Button>
-              <Button variant="outlined" fullWidth={true}>
+              <Button variant="contained" fullWidth={true}>
                 Vehicle Information
               </Button>
             </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three
             </TabPanel>
-        </Grid>
+        </Paper>
         <Grid className={classes.icon}>
             <IconButton>
                 <MailIcon />

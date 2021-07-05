@@ -119,7 +119,6 @@ const data = {
         { name: "Hosted By", value: "Sam Wilson" },
       ]
     }
-
   }
 };
 

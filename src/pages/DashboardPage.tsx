@@ -14,6 +14,15 @@ import Data from "../data";
 import LeadsSidebar from '../components/dashboard/leadsSidebar'
 import SearchTask from '../components/dashboard/searchTask'
 import RightSection from '../components/dashboard/RightSection'
+import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
+
+import RightSection from "../components/dashboard/RightSection";
+
+const cyan600 = cyan["600"];
+const pink600 = pink["600"];
+const purple600 = purple["600"];
+const orange600 = orange["600"];
+const grey600 = grey["600"];
 
 const styles = {
   navigation: {
