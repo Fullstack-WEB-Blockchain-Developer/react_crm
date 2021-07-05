@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from "@material-ui/core";
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { Grid, IconButton, Button } from "@material-ui/core";
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -13,6 +13,7 @@ import CallToActionIcon from '@material-ui/icons/CallToAction';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import VideocamIcon from '@material-ui/icons/Videocam';
 import CameraRearIcon from '@material-ui/icons/CameraRear';
+import CustomizedTimeline from './CustomizedTimeline';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -47,18 +48,48 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles(() => ({
-  root: {
-    // backgroundColor: theme.palette.background.paper,
+const useStyles = makeStyles((theme) => ({
+  root: {   
     width: '100%',
-  }
+  },
+  icon: { 
+    '& > svg': {
+        margin: theme.spacing(1),        
+    },
+    backgroundColor: 'lightGray',
+    margin: '5px',
+    display: 'flex',
+    justifyContent: 'space-evenly',
+  },
+  tabPanelBorder: { 
+    border: '1px solid gray',
+    margin: '5px',
+    marginTop: '0px',
+    height: '320px',
+    overflowY: 'scroll'
+  },    
 }));
-const style = {
+const style = { 
     minWidth: 'auto',
-    fontSize: '10px'
-}
+    fontSize: '12px'
+};
+const GlobalCss = withStyles({ 
+    '@global': {
+        '.MuiBox-root': {
+            padding: '5px'
+        },
+        '.MuiButton-root': {
+            padding: '2px',
+            lineHeight: '1',
+            borderRadius: '0px',
+            textTransform: 'capitalize'
+        }
+    }
+})(() => null);
 
-export default function FullWidthTabs() {
+
+
+export default function FullWidthTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -68,38 +99,62 @@ export default function FullWidthTabs() {
 
   return (
     <div className={classes.root}>
-        <Grid>
+        <Grid className={classes.tabPanelBorder}>
             <TabPanel value={value} index={0}>
-                Item One
+              <GlobalCss />
+              <Button variant="outlined" fullWidth={true}>
+                Schedule an Email
+              </Button>
+              <Button variant="outlined" fullWidth={true}>
+                Build & Price-Send Deal
+              </Button>
+              <CustomizedTimeline data={props.data} />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
+              <GlobalCss />
+              <Button variant="outlined" fullWidth={true}>
+                Financing Information
+              </Button>
+              <Button variant="outlined" fullWidth={true}>
+                Vehicle Information
+              </Button>
             </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three
             </TabPanel>
         </Grid>
-        <Grid>
-            <MailIcon />
-            <CreateIcon />
-            <CallToActionIcon />
-            <LocalOfferIcon />
-            <VideocamIcon />
-            <CameraRearIcon />
+        <Grid className={classes.icon}>
+            <IconButton>
+                <MailIcon />
+            </IconButton><IconButton>
+                <CreateIcon />
+            </IconButton>
+            <IconButton>
+                <CallToActionIcon />
+            </IconButton>
+            <IconButton>
+                <LocalOfferIcon />
+            </IconButton>
+            <IconButton>
+                <VideocamIcon />
+            </IconButton>
+            <IconButton>
+                <CameraRearIcon />
+            </IconButton>
         </Grid>
         <AppBar position="static" color="default">
-            <Tabs
+          <Tabs
             value={value}
             onChange={handleChange}
             indicatorColor="primary"
             textColor="primary"
             variant="fullWidth"
             aria-label="full width tabs example"
-            >
+          >
             <Tab label="Follow Up" {...a11yProps(0)} style={style} />
             <Tab label="Approval" {...a11yProps(1)} style={style} />
             <Tab label="Delivery" {...a11yProps(2)} style={style} />
-            </Tabs>
+          </Tabs>
         </AppBar>
         
     </div>

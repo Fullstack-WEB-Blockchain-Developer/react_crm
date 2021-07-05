@@ -27,6 +27,7 @@ import NotFoundPage from "./NotFoundPage";
 import ChangePasswordPage from "./ChangePasswordPage";
 import MaileInboxPage from "./MaileInboxPage";
 
+
 const isSmallsWindowScreen = () => {
   return window.innerWidth <= 600;
 };
@@ -41,7 +42,6 @@ const useStyles = (navDrawerOpen: boolean, isSmallScreen: boolean) => {
       overflow: "hidden",
       maxHeight: 48,
       minHeight: 0,
-      backgroundColor: "black",
     // width:100,
       //   navDrawerOpen && !isSmallScreen
       //     ? `calc(100% - ${drawerWidth}px)`
@@ -56,6 +56,7 @@ const useStyles = (navDrawerOpen: boolean, isSmallScreen: boolean) => {
     content: {
       margin: '50px 0px 0px 60px',
       flexGrow: 1,
+      height:"100%"
     },
   };
 };

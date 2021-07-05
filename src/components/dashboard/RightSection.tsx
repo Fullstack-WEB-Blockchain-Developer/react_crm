@@ -1,57 +1,26 @@
-import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import React from "react";
 import Datepicker from "../Datepicker";
 import Paper from "@material-ui/core/Paper";
-import { List, ListItem, ListItemText, Grid } from "@material-ui/core";
 import FullWidthTabs from "../FullWidthTabs";
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    demo: {
-        backgroundColor: theme.palette.background.paper,
-    },
-    title: {
-        margin: theme.spacing(4, 0, 2),
-    },
-    pd: {
-        padding: 0,
-    },
-    bd: {
-        border: '1px solid gray',
-        margin: '5px'
-    }
-}));
+import PaperInfo from '../PaperInfo';
 
-const theme = createMuiTheme({
-    typography: {
-      fontSize: 8,
-    },
-  });
+const useStyles = makeStyles(() => ({
+  root: {
+    flexGrow: 1,
+    height:`calc(100% - 48px * 2)`,
+  }
+}));
   
 export default function RightSection(props){
-    const classes = useStyles();
-    return (
-        <Paper className={classes.root}>
-            <Datepicker />
-            <Grid spacing={2} className={classes.bd}>
-                <Grid item xs={12} md={6}>
-                    <List>
-                        {props.data.map((item) => (
-                            <ThemeProvider theme={theme}>
-                                <ListItem className={classes.pd}>
-                                    <ListItemText primary={item.name}/>
-                                    <ListItemText primary={item.value}/>
-                                </ListItem>
-                            </ThemeProvider>
-                        ))}
-                    </List>
-                </Grid>
-                <Grid item xs={12} md={6}></Grid>
-            </Grid> 
-            <FullWidthTabs/>
-        </Paper>
-        
-    );
+  const classes = useStyles();
+  return (
+    <Paper className={classes.root}  elevation={3}>
+      <Datepicker />
+      <PaperInfo data={props.data.information} />            
+      <FullWidthTabs data={props.data.appointment} />
+    </Paper>
+    
+  );
 
 };

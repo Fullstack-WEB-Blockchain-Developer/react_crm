@@ -67,3 +67,6 @@ yarn-error.log*
 
 ## storybook
 storybook-static
+
+##order
+node_modules.rar

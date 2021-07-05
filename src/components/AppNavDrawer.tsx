@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
     },
     user: {
-      fontSize: 22,
+      fontSize: 15,
       color: common.white,
     },
     menuItem: {
@@ -74,8 +74,7 @@ export default function AppNavDrawer(props: Props) {
 
   const drawer = (
     <>
-      <AppUserMenu username={username} onSignoutClick={onSignoutClick} 
-      onChangePassClick={onChangePassClick} />
+      {/* <AppUserMenu username={username} onSignoutClick={onSignoutClick}   onChangePassClick={onChangePassClick} /> */}
       <AppDrawerMenu />
     </>
   );
@@ -88,7 +87,6 @@ export default function AppNavDrawer(props: Props) {
           <Drawer
             variant="persistent"
             anchor="left"
-            // open={navDrawerOpen}
             open={true}
             onClose={handleDrawerToggle}
             className={clsx(drawerStyle, {

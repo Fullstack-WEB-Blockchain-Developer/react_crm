@@ -100,17 +100,25 @@ const data = {
       { name: "Page E", uv: 1520, pv: 1108, amt: 1100 },
       { name: "Page F", uv: 1400, pv: 680, amt: 1700 }
     ],
-    
-    rightSection: [
-      { name: "Customer Id:", value: "0000000"},
-      { name: "Name:", value: "Jane Doe"},
-      { name: "Email:", value: "janedoe@gmail.com"},
-      { name: "Phone:", value: "123-456-7890"},
-      { name: "Source:", value: "iLead"},
-      { name: "lead Date:", value: "2021-05-17"},
-      { name: "lead Accept date:", value: "2021-05-17"},
-      { name: "Vehicle Model:", value: "Toyota"}
-    ]
+    rightSection: {
+      information: [
+        { name: "Customer Id:", value: "0000000"},
+        { name: "Source:", value: "iLead"},
+        { name: "Name:", value: "Jane Doe"},
+        { name: "lead Date:", value: "2021-05-17"},
+        { name: "Email:", value: "janedoe@gmail.com"},
+        { name: "lead Accept date:", value: "2021-05-17"},
+        { name: "Phone:", value: "123-456-7890"},
+        { name: "Vehicle Model:", value: "Toyota"}
+      ],
+      appointment: [
+        { name: "Time1", value: "11:35" },
+        { name: "Time2", value: "13:05" },
+        { name: "Who", value: "Sam Wilson" },
+        { name: "Where", value: "Zoom Meetings" },
+        { name: "Hosted By", value: "Sam Wilson" },
+      ]
+    }
 
   }
 };

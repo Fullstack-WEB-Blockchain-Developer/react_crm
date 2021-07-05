@@ -7,6 +7,7 @@ import { InputBase, Button } from '@material-ui/core';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
 import AppsIcon from '@material-ui/icons/Apps';
 import SearchIcon from '@material-ui/icons/Search';
+import styled from 'styled-components'
 import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
 
 const cyan600 = cyan["600"];
@@ -15,6 +16,18 @@ const purple600 = purple["600"];
 const orange600 = orange["600"];
 const grey600 = grey["600"];
 
+const Button1 =styled(Button)`
+  margin: 3px;
+  border-radius: 0 4px 0 4px;
+  line-height: 2;
+  font-size: 10;
+`;
+const Button2 =styled(Button)`
+  min-width: fit-content;
+  font-size: 12px;
+  padding: 12px;
+`;
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -22,12 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingLeft: "0.5em",
     },
     bar:{
-      backgroundColor: cyan600,
-      fontSize: 10,
-    },
-    button: {
-      margin: "3px",
-      borderRadius: "0 4px 0 4px",
+      backgroundColor: grey["100"],
       fontSize: 10,
     },
     title: {
@@ -70,7 +78,7 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'center',
     },
     inputRoot: {
-      color: 'inherit',
+      color: grey600,
     },
     inputInput: {
       padding: theme.spacing(1, 1, 1, 0),
@@ -79,9 +87,9 @@ const useStyles = makeStyles((theme: Theme) =>
       transition: theme.transitions.create('width'),
       width: '90%',
       [theme.breakpoints.up('sm')]: {
-        width: '50px',
+        width: '11ch',
         '&:focus': {
-          width: '100px',
+          width: '120px',
         },
       },
     },
@@ -99,26 +107,29 @@ export default function SearchTask() {
   return (
     <div className={classes.root} >
       <AppBar position="static" className={classes.bar} >
-        <Toolbar  variant="dense" style={{paddingRight: 0}}>
-          <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#20d8ff" }}>
+        <Toolbar  variant="dense" style={{padding: "10px",justifyContent: "space-between"}}>
+          <div style={{display:"inline-flex"}}>
+          <Button1 variant="contained" size="small" style={{ backgroundColor: "#00acc1" }}>
             Pending
-          </Button>
-          <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#dfd8ff" }}>
+          </Button1>
+          <Button1 variant="contained" size="small" style={{ backgroundColor: "#rgb(216, 27, 96)" }}>
             Scheduled
-          </Button>
-          <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#fff8ff" }}>
+          </Button1>
+          <Button1 variant="contained" size="small" style={{ backgroundColor: "#8e24aa" }}>
             Replied
-          </Button>
-          <Button variant="contained" size="small" className={classes.button} style={{ backgroundColor: "#80d8ff",
-      width: "130px"}}>
-            Accomplished
-          </Button >
+          </Button1>
+          <Button1 variant="contained" size="small" style={{ backgroundColor: "#fb8c00"}} >
+              Accomplished
+          </Button1 >
+          </div>
+          <div>
           {['Email', 'Call', 'SMS', 'Appt', 'Build', 'Note', 'Solid'].map((text, index) => (
-            <Button className={classes.link}  key={text}>
+            <Button2 className={classes.link}  key={text}>
               {text}
-            </Button>
+            </Button2>
           ))}
-          <Button variant="contained" size="medium" className={classes.button} style={{ borderRadius: "4px", fontSize:10}}>
+          </div>
+          <Button variant="contained" size="medium" color="primary" style={{ borderRadius: "4px", lineHeight:2}}>
             Creat leads
           </Button>
           <div className={classes.search}>
