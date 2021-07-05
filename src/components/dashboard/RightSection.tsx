@@ -8,7 +8,8 @@ import PaperInfo from '../PaperInfo';
 const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
-        maxWidth: 752,
+        maxWidth: 'auto',
+        height: '100%'
     }
 }));
   

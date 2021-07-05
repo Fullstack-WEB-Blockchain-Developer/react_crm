@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '6px 16px',
     '& > h6': {
       margin: '4px'
-    }
+    },
+    backgroundColor: '#f4fffc'
   },
   secondaryTail: {
     backgroundColor: theme.palette.secondary.main,

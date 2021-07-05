@@ -166,47 +166,9 @@ class App extends React.Component<AppProps, AppState> {
     const showDashboard = pathname === "/" || pathname.endsWith("dashboard");
 
     return (
-      <MuiThemeProvider theme={themeDefault}>
-        <div>
-          {isAuthenticated && (
-            <div>
-              <AppNavBar
-                styles={appStlyes}
-                handleDrawerToggle={this.handleDrawerToggle.bind(this)}
-              ></AppNavBar>
-              <AppNavDrawer
-                drawerStyle={appStlyes.drawer}
-                navDrawerOpen={navDrawerOpen}
-                username={`${firstname} ${lastname}`}
-                onSignoutClick={this.signOut}
-                onChangePassClick={this.changePass}
-                handleDrawerToggle={this.handleDrawerToggle.bind(this)}
-                isSmallScreem={isSmallScreen}
-              />
-              <div style={appStlyes.content}>
-                {showDashboard && <DashboardPage />}
-                <Route exact path={`/customers`} component={CustomerListPage} />
-                <Route path={`/customer/:id`} component={CustomerFormPage} />
-                <Route path={`/newcustomer/`} component={CustomerFormPage} />
-                <Route exact path={`/orders`} component={OrderListPage} />
-                <Route path={`/order/:id`} component={OrderFormPage} />
-                <Route path={`/neworder/`} component={OrderFormPage} />
-                <Route exact path={`/products`} component={ProductListPage} />
-                <Route path={`/product/:id`} component={ProductFormPage} />
-                <Route path={`/newproduct`} component={ProductFormPage} />
-                <Route path={`/about`} component={AboutPage} />
-                <Route path="/changepass" component={ChangePasswordPage} />
-                <Route exact path={`/mails`} component={MaileInboxPage} />
-                {/* <Route path="/404" component={NotFoundPage} />
-                <Redirect to="/404" /> */}
-              </div>
-            </div>
-          )}
-          {!isAuthenticated && (
-            <LoginPage onSignInClick={(creds) => this.signIn(creds)} />
-          )}
-        </div>
-      </MuiThemeProvider>
+      <div>
+        <DashboardPage />
+      </div>
     );
   }
 }
