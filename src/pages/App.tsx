@@ -48,7 +48,7 @@ const useStyles = (navDrawerOpen: boolean, isSmallScreen: boolean) => {
       // marginLeft: navDrawerOpen && isSmallScreen ? drawerWidth : 0,
     },
     drawer: {
-      width: isSmallScreen ? drawerWidth : 0,
+      width: isSmallScreen ? drawerWidth : "100%",
       flexShrink: 0,
       overflow: "auto",
     },

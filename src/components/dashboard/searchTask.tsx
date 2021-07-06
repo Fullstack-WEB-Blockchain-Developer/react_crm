@@ -45,6 +45,15 @@ const useStyles = makeStyles((theme: Theme) =>
         display: 'block',
       },
     },
+    toolbar: {
+      padding: "10px",
+      justifyContent: "space-between", 
+      flexWrap: "wrap"
+    },
+    buttons: {
+      display:"inline-flex",
+      flexWrap: "wrap",
+    },
     link: {
       fontWeight: 300,
       padding: "2px",
@@ -76,6 +85,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       alignItems: 'center',
       justifyContent: 'center',
+      color:"grey",
     },
     inputRoot: {
       color: grey600,
@@ -107,8 +117,8 @@ export default function SearchTask() {
   return (
     <div className={classes.root} >
       <AppBar position="static" className={classes.bar} >
-        <Toolbar  variant="dense" style={{padding: "10px",justifyContent: "space-between"}}>
-          <div style={{display:"inline-flex"}}>
+        <Toolbar  variant="dense" className={classes.toolbar} >
+          <div className={classes.buttons} >
           <Button1 variant="contained" size="small" style={{ backgroundColor: "#00acc1" }}>
             Pending
           </Button1>
@@ -128,10 +138,10 @@ export default function SearchTask() {
               {text}
             </Button2>
           ))}
-          </div>
           <Button variant="contained" size="medium" color="primary" style={{ borderRadius: "4px", lineHeight:2}}>
             Creat leads
           </Button>
+          </div>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -148,7 +158,8 @@ export default function SearchTask() {
           <IconButton
             edge="end"
             className={classes.apps}
-          >
+            size='medium'
+            >
             <AppsIcon />
           </IconButton>
         </Toolbar>
