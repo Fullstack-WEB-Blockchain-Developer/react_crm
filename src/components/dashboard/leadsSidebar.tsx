@@ -49,6 +49,8 @@ export default function LeadSidebar(props) {
       {/* <SearchInput className="search-input" onChange={this.searchUpdated} /> */}
       <SearchInput className={`${classes.search} search-input`}/>
       <Paper variant="outlined" className={classes.datepicker} >
+      <input type="week" name="week" id="camp-week"
+        />
         <Datepicker />
       </Paper>
       <CssBaseline />
