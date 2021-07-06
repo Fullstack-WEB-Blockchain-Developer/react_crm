@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   search: {
     borderWidth:"0 0 1px 0",
     borderStyle: "solid",
+    borderColor: "#8080806b",
     margin: "5px 20px",
   },
   paper: {

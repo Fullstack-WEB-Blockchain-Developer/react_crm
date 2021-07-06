@@ -61,17 +61,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-evenly',
   },
-  tabPanelBorder: { 
-    border: '1px solid gray',
+  tabPanelMargin: { 
     margin: '5px',
     marginTop: '0px',
     height: '320px',
     overflowY: 'scroll'
   },
-  tabPanelMargin: { 
-    margin: '5px',
-    overflowY: 'auto'
-  },    
 }));
 const style = { 
     minWidth: 'auto',
