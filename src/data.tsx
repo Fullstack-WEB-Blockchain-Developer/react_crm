@@ -118,7 +118,13 @@ const data = {
         { name: "Where", value: "Zoom Meetings" },
         { name: "Hosted By", value: "Sam Wilson" },
       ]
-    }
+    },
+    inbox: [
+      {name: "New Mail", value: "New Mail"},
+      {name: "Sample Creative", value: "Sample Creative"},
+      {name: "Author", value: "FROM<email@mail.service>"},
+      {name: "Time", value: "8:02AM"},
+    ]
   }
 };
 

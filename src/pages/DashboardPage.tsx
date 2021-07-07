@@ -47,7 +47,7 @@ const DashboardPage = () => {
                 title="Sales"
                 value="460"
               />               */}
-              <Inbox/>
+              <Inbox data={Data.dashBoardPage.inbox}/>
             </Grid>
             <Grid xs={12} md={4} style={styles.cell} >
               <RightSection data={Data.dashBoardPage.rightSection} />
