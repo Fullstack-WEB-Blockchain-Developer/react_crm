@@ -14,7 +14,9 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     paper: {
-        width: '100%'
+        width: '100%',
+        minHeight: 670,
+        margin: 0
     },
     iconLM: {
         textAlign: 'right'
@@ -50,7 +52,7 @@ export default function Inbox(props) {
 
   return (
     <div className={classes.root}>
-        <Paper elevation={3} className={classes.paper} style={{minHeight: 670}}>
+        <Paper elevation={3} className={classes.paper}>
             <Grid xs={12} container className={classes.containerP}>
                 <Grid xs={6} item container className={classes.breadcrumbsFont}>
                     <Grid item xs={'auto'}>{props.data[0].value} - {props.data[1].value}</Grid>

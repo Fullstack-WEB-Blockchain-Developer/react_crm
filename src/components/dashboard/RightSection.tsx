@@ -26,7 +26,7 @@ export default function RightSection(props){
                 endDate={7} 
                 selectDate={""}
                 getSelectedDay={selectedDay} 
-                labelFormat={"MMMM yyyy"} 
+                labelFormat={"MMMM yyyy E"} 
                 color={"#374e8c"} 
                 language={"en"} />
             <PaperInfo data={props.data.information} />            
