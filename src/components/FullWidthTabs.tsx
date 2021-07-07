@@ -14,7 +14,6 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import VideocamIcon from '@material-ui/icons/Videocam';
 import CameraRearIcon from '@material-ui/icons/CameraRear';
 import CustomizedTimeline from './CustomizedTimeline';
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -63,30 +62,28 @@ const useStyles = makeStyles((theme) => ({
   },
   tabPanelMargin: { 
     margin: '5px',
-    marginTop: '0px',
-    height: '320px',
-    overflowY: 'scroll'
-  },
+    overflowY: 'auto'
+  },    
 }));
+
 const style = { 
     minWidth: 'auto',
     fontSize: '12px'
 };
+
 const GlobalCss = withStyles({ 
     '@global': {
         '.MuiBox-root': {
             padding: '5px'
         },
         '.MuiButton-root': {
-            padding: '2px',
+            padding: '5px',
             lineHeight: '1',
-            // borderRadius: '0px',
-            textTransform: 'capitalize'
+            textTransform: 'capitalize',
+            marginBottom: '8px'
         }
     }
 })(() => null);
-
-
 
 export default function FullWidthTabs(props) {
   const classes = useStyles();

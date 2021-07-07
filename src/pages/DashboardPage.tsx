@@ -1,20 +1,12 @@
 import React from "react";
-import Assessment from "@material-ui/icons/Assessment";
-import Face from "@material-ui/icons/Face";
-import ThumbUp from "@material-ui/icons/ThumbUp";
-import ShoppingCart from "@material-ui/icons/ShoppingCart";
-import { Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Paper, Grid } from '@material-ui/core'
-import InfoBox from "../components/dashboard/InfoBox";
-import NewOrders from "../components/dashboard/NewOrders";
-import MonthlySales from "../components/dashboard/MonthlySales";
-import BrowserUsage from "../components/dashboard/BrowserUsage";
-import LineBarChart from "../components/dashboard/LineBarChart";
+import { Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Paper, Grid } from '@material-ui/core';
 import Data from "../data";
 
 import LeadsSidebar from '../components/dashboard/leadsSidebar'
 import SearchTask from '../components/dashboard/searchTask'
 import RightSection from '../components/dashboard/RightSection'
 import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
+import Inbox from '../components/Inbox';
 
 
 const cyan600 = cyan["600"];
@@ -55,7 +47,7 @@ const DashboardPage = () => {
                 title="Sales"
                 value="460"
               />               */}
-              <Paper></Paper>
+              <Inbox/>
             </Grid>
             <Grid xs={12} md={4} style={styles.cell} >
               <RightSection data={Data.dashBoardPage.rightSection} />

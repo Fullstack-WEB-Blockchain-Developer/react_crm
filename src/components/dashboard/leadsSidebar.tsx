@@ -52,7 +52,7 @@ export default function LeadSidebar(props) {
       <Paper variant="outlined" className={classes.datepicker} >
       <input type="week" name="week" id="camp-week"
         />
-        <Datepicker />
+        
       </Paper>
       <CssBaseline />
       <Paper elevation={3} className={classes.paper}>
