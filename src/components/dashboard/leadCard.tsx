@@ -20,7 +20,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: theme.spacing(1),
+    margin: "15px 0",
     width: "100%",
   },
   title: {
