@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
     margin: "5px 20px",
   },
   paper: {
-    padding: 0,
-    maxHeight: `calc(100% - 240px)`
+    padding: "15px 0",
+    // maxHeight: `calc(100% - 240px)`
   },
   list: {
     margin: theme.spacing(1),
