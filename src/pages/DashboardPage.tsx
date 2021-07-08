@@ -18,43 +18,37 @@ const grey600 = grey["600"];
 const styles = {
   navigation: {
     fontSize: 15,
-    fontWeight: 400, //TypographyStyle.fontWeightLight,
+    fontWeight: 400, 
     color: "grey600",
     // paddingBottom: 15,
     display: "block",
   },
   cell: {
     padding: "0.5em",
-  },
+  }
 };
 
 const DashboardPage = () => {
   return (
     <>
       <Grid container >
-        <Grid style={styles.cell} xs={12} md={3} >
+        <Grid item xs={12} md={3} style={{height: '819px'}}>
           <LeadsSidebar data={Data.dashBoardPage.rightSection} />
         </Grid>
-        <Grid  xs={12} md={9}>
-          <Grid  xs={12}  >
+        <Grid item container xs={12} md={9}>
+          <Grid item xs={12}  >
             <SearchTask/>
           </Grid>
-          <Grid container style={{height: `calc(100% - 50px * 2)`}} >
-            <Grid style={styles.cell} xs={12} md={8}>
-              {/* <InfoBox
-                Icon={Assessment}
-                spanBgColor={purple600}
-                title="Sales"
-                value="460"
-              />               */}
+          <Grid item container style={{height: `calc(100% - 50px * 2)`}} >
+            <Grid item style={styles.cell} xs={12} md={8}>
               <Inbox data={Data.dashBoardPage.inbox}/>
             </Grid>
-            <Grid xs={12} md={4} style={styles.cell} >
+            <Grid item style={styles.cell} xs={12} md={4} >
               <RightSection data={Data.dashBoardPage.rightSection} />
-              <Paper></Paper>
             </Grid>
           </Grid>
         </Grid>
+        <Grid item xs={12}></Grid>
       </Grid>
     </>
   );

@@ -1,7 +1,7 @@
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import React from "react";
-import SearchInput, {createFilter} from 'react-search-input'
-import Datepicker from "../Datepicker";
+import SearchInput, {createFilter} from 'react-search-input';
+import SimpleDatepicker from "../SimpleDatepicker";
 import Paper from "@material-ui/core/Paper";
 import "./search_input.css"
 import { List, ListItem, ListItemText, Grid, CssBaseline, Drawer } from "@material-ui/core";
@@ -12,7 +12,8 @@ import LeadCard from "./leadCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "0 0 10px 0",
+    padding: 0,
+    height: '792px'
   },
   title: {
     margin: theme.spacing(4, 0, 2),
@@ -31,50 +32,50 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: 0,
-    maxHeight: `calc(100% - 240px)`
+    maxHeight: `calc(100% - 160px)`,
+    height: '624px'
   },
   list: {
     margin: theme.spacing(1),
     position: 'relative',
     overflow: 'auto',
-    height:"500px",
+    height:"570px",
     fontSize:"11px",
   },
+  pad: {
+    paddingLeft: 0,
+    paddingRight: 0
+  }
 }));
+
+const selectedDay = (val) =>{
+  console.log(val)
+};
 
 export default function LeadSidebar(props) {
   const classes = useStyles();
   // const filteredEmails = emails.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
   return (
-    <Paper variant="outlined" elevation={3} className={classes.root} >
-      {/* <SearchInput className="search-input" onChange={this.searchUpdated} /> */}
+    <Paper elevation={3} className={classes.root} >
       <SearchInput className={`${classes.search} search-input`}/>
-      <Paper variant="outlined" className={classes.datepicker} >
-      <input type="week" name="week" id="camp-week"
-        />
-        
+      <Paper variant="outlined" className={classes.datepicker} >        
+        <SimpleDatepicker
+          beforeDate={3} 
+          endDate={6} 
+          selectDate={""}
+          getSelectedDay={selectedDay} 
+          labelFormat={"MMMM yyyy E"} 
+          color={"#374e8c"} 
+          language={"en"} /> 
       </Paper>
       <CssBaseline />
       <Paper elevation={3} className={classes.paper}>
         <List className={classes.list}>
         {[0, 1, 2, 3, 4].map((item) => (
-          <ListItem key={`item--${item}`}  >
-            {/* <ListItemText primary={`Item ${item}`} /> */}
+          <ListItem key={`item--${item}`}  className={classes.pad} >
             <LeadCard data={props.data.information} />
           </ListItem>
           ))}
-          {/* {messages.map(({ id, primary, secondary, person }) => (
-            <React.Fragment key={id}>
-              {id === 1 && <ListSubheader className={classes.subheader}>Today</ListSubheader>}
-              {id === 3 && <ListSubheader className={classes.subheader}>Yesterday</ListSubheader>}
-              <ListItem button>
-                <ListItemAvatar>
-                  <Avatar alt="Profile Picture" src={person} />
-                </ListItemAvatar>
-                <ListItemText primary={primary} secondary={secondary} />
-              </ListItem>
-            </React.Fragment>
-          ))} */}
         </List>
       </Paper>
     </Paper>

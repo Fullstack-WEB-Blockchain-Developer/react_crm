@@ -66,7 +66,6 @@ const Button = styled.button`
 `
 const ButtonToday = styled.button`
     border-radius: 8px;
-    cursor: pointer;
     width: 70px;
     height: 40px;
     font-size: 20px;
@@ -124,7 +123,7 @@ const DateLabel = styled.div`
     font-size: 18px;
 `
 
-export default function Datepicker({beforeDate, endDate, selectDate, getSelectedDay, color, labelFormat, language}) {
+export default function SimpleDatepicker({beforeDate, endDate, selectDate, getSelectedDay, color, labelFormat, language}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const firstSection = {marginLeft: '40px'};
     const current = new Date();
@@ -252,19 +251,8 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
     }
 
     const classes = useStyles();
-    return (<div className={classes.root}>
-            <Grid container spacing={2} className={classes.containerPad}>
-                <Grid item xs container className={classes.dateContaniner}>
-                    <Grid item className={classes.date}>{new Date().getDate()}</Grid>
-                    <Grid item>
-                        <Grid>{format(new Date(), "E")}</Grid>
-                        <Grid>{format(new Date(), labelFormat)}</Grid>
-                    </Grid>
-                </Grid>
-                <Grid item>
-                    <ButtonToday onClick={() => onDateClick(new Date())}>Today</ButtonToday>
-                </Grid>
-            </Grid>            
+    return (<div className={classes.root}> 
+            <input type="week" name="week" id="camp-week"/>
             <Container>
                 {renderDays(langCode)}
             </Container>

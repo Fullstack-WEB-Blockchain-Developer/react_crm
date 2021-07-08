@@ -12,11 +12,13 @@ const useStyles = makeStyles((theme) => ({
             width: theme.spacing(16),
             height: theme.spacing(16),
         },
+        height: '100%'
     },
     paper: {
         width: '100%',
         minHeight: 670,
-        margin: 0
+        margin: 0,
+        height: 'auto'
     },
     iconLM: {
         textAlign: 'right'

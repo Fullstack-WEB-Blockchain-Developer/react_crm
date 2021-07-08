@@ -55,7 +55,7 @@ const useStyles = (navDrawerOpen: boolean, isSmallScreen: boolean) => {
     content: {
       margin: '50px 0px 0px 60px',
       flexGrow: 1,
-      height:"100%"
+      height:"785px"
     },
   };
 };

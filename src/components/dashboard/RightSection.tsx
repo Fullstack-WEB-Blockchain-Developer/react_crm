@@ -9,7 +9,8 @@ const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
         maxWidth: 'auto',
-        height: '100%'
+        height: '100%',
+        marginTop: 8
     }
 }));
 
@@ -18,12 +19,12 @@ const selectedDay = (val) =>{
   };
   
 export default function RightSection(props){
-  const classes = useStyles();
-  return (
-    <Paper className={classes.root}  elevation={3}>
+    const classes = useStyles();
+    return (
+        <Paper className={classes.root}  elevation={3}>
             <Datepicker
                 beforeDate={3} 
-                endDate={7} 
+                endDate={6} 
                 selectDate={""}
                 getSelectedDay={selectedDay} 
                 labelFormat={"MMMM yyyy E"} 
@@ -31,8 +32,7 @@ export default function RightSection(props){
                 language={"en"} />
             <PaperInfo data={props.data.information} />            
             <FullWidthTabs data={props.data.appointment} />
-        </Paper>
-        
+        </Paper>        
     );
 
 };
