@@ -40,30 +40,6 @@ const Container = styled.div`
     box-sizing: border-box;
 `
 
-const ButtonWrapper = styled.div`
-    display: flex;
-    align-items: flex-end;
-    z-index: 2;
-    background: inherit;
-`
-
-const Button = styled.button`
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 12%;
-    width: 20px;
-    height: 50px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin-bottom: 5px;
-`
 const ButtonToday = styled.button`
     border-radius: 8px;
     cursor: pointer;
@@ -126,15 +102,11 @@ const DateLabel = styled.div`
 
 export default function Datepicker({beforeDate, endDate, selectDate, getSelectedDay, color, labelFormat, language}) {
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const firstSection = {marginLeft: '40px'};
     const current = new Date();
     const startDate = addDays(current, -beforeDate);
     const lastDate = addDays(startDate, endDate || 90);
-    const primaryColor = color || 'rgb(54, 105, 238)';
     const selectedStyle = {fontWeight:"bold",width:"30px",height:"50px",borderRadius:"12%",backgroundColor:`#f44336`,color:`white`};
-    const buttonColor = {background: primaryColor};
-    const labelColor= {color: primaryColor};
-
+   
     const getStyles = (day) => {
         if (isSameDay(day, selectedDate)) {
             return(selectedStyle);
@@ -225,19 +197,7 @@ export default function Datepicker({beforeDate, endDate, selectDate, getSelected
             }
         }
     }, [selectDate]);
-
-    const nextWeek = () => {
-        const e = document.getElementById('container');
-        const width = e ? e.getBoundingClientRect().width : null;
-        e.scrollLeft += width - 60;
-    };
-
-    const prevWeek = () => {
-        const e = document.getElementById('container');
-        const width = e ? e.getBoundingClientRect().width : null;
-        e.scrollLeft -= width - 60;
-    };
-
+    
     let langCode
     switch (language) {
         case "en":

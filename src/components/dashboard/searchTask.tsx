@@ -2,18 +2,13 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import { InputBase, Button } from '@material-ui/core';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
 import AppsIcon from '@material-ui/icons/Apps';
 import SearchIcon from '@material-ui/icons/Search';
 import styled from 'styled-components'
-import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
+import { grey } from "@material-ui/core/colors";
 
-const cyan600 = cyan["600"];
-const pink600 = pink["600"];
-const purple600 = purple["600"];
-const orange600 = orange["600"];
 const grey600 = grey["600"];
 
 const Button1 =styled(Button)`

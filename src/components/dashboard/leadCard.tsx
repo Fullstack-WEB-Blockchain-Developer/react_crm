@@ -1,22 +1,13 @@
 import React from "react";
-import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { FixedSizeList, ListChildComponentProps } from 'react-window';
+import { makeStyles } from '@material-ui/core/styles';
 import {Card, Grid} from "@material-ui/core";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import Icon from "@material-ui/core/Icon";
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import SendIcon from '@material-ui/icons/Send';
 import AutorenewIcon from '@material-ui/icons/Autorenew';
-import Avatar from '@material-ui/core/Avatar'
-import CardHeader from '@material-ui/core/CardHeader'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -1,19 +1,11 @@
 import React from "react";
-import { Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Paper, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Data from "../data";
 
 import LeadsSidebar from '../components/dashboard/leadsSidebar'
 import SearchTask from '../components/dashboard/searchTask'
 import RightSection from '../components/dashboard/RightSection'
-import { cyan, pink, purple, orange, grey } from "@material-ui/core/colors";
 import Inbox from '../components/Inbox';
-
-
-const cyan600 = cyan["600"];
-const pink600 = pink["600"];
-const purple600 = purple["600"];
-const orange600 = orange["600"];
-const grey600 = grey["600"];
 
 const styles = {
   navigation: {

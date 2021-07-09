@@ -1,9 +1,8 @@
 import React from "react";
 import clsx from 'clsx'
 import Drawer from "@material-ui/core/Drawer";
-import { makeStyles, createStyles, useTheme, Theme } from "@material-ui/core/styles";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { blue, common } from "@material-ui/core/colors";
-import AppUserMenu from "./AppUserMenu";
 import AppDrawerMenu from "./AppDrawerMenu";
 
 const blue600 = blue["900"];
@@ -61,11 +60,8 @@ interface Props {
 export default function AppNavDrawer(props: Props) {
   const styles = useStyles();
   const {
-    username,
     navDrawerOpen,
     isSmallScreem,
-    onSignoutClick,
-    onChangePassClick,
     handleDrawerToggle,
     drawerStyle,
   } = props;
