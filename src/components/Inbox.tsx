@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, withStyles  } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper, Typography, IconButton, Tooltip  } from '@material-ui/core';
 import {Print, Launch, AccountCircle, StarBorder, Reply, MoreVert, DoubleArrow} from '@material-ui/icons';
 

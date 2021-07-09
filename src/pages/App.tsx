@@ -1,8 +1,8 @@
 import * as React from "react";
 import "../styles.scss";
 // import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
-import { ThemeProvider as MuiThemeProvider, createStyles, makeStyles, useTheme, Theme } from "@material-ui/core/styles";
-import { Route, Redirect } from "react-router-dom";
+import { ThemeProvider as MuiThemeProvider, } from "@material-ui/core/styles";
+import { Route } from "react-router-dom";
 import AppNavBar from "../components/AppNavBar";
 import AppNavDrawer from "../components/AppNavDrawer";
 import { WithWidth } from "@material-ui/core/withWidth";
@@ -30,7 +30,6 @@ import MaileInboxPage from "./MaileInboxPage";
 const isSmallsWindowScreen = () => {
   return window.innerWidth <= 600;
 };
-const drawerWidth = 250;
 
 const useStyles = (navDrawerOpen: boolean, isSmallScreen: boolean) => {
   return {
