@@ -25,7 +25,7 @@ import ProductListPage from "./ProductListPage";
 import AboutPage from "./AboutPage";
 // import NotFoundPage from "./NotFoundPage";
 import ChangePasswordPage from "./ChangePasswordPage";
-import MaileInboxPage from "./MaileInboxPage";
+import MailInboxPage from "./MailInboxPage";
 
 const isSmallsWindowScreen = () => {
   return window.innerWidth <= 600;
@@ -195,7 +195,7 @@ class App extends React.Component<AppProps, AppState> {
                 <Route path={`/newproduct`} component={ProductFormPage} />
                 <Route path={`/about`} component={AboutPage} />
                 <Route path="/changepass" component={ChangePasswordPage} />
-                <Route exact path={`/mails`} component={MaileInboxPage} />
+                {/* <Route exact path={`/mails`} component={MailInboxPage} /> */}
                 {/* <Route path="/404" component={NotFoundPage} />
                 <Redirect to="/404" /> */}
               </div>

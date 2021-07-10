@@ -4,6 +4,7 @@ import {
   Order,
   Product,
   Category,
+  EmailCRM
 } from "../types";
 
 export enum HttpMethod {
@@ -12,7 +13,6 @@ export enum HttpMethod {
   PUT,
   DELETE,
 }
-
 export interface ApiAction {
   type: TODO;
   endpoint: string;
@@ -298,5 +298,35 @@ export type NewAction =
   | typeof NEW_CUSTOMER
   | typeof NEW_ORDER
   
+// === email IMAP === //
+export const LIST_EMAILCRM = "LIST_EMAILCRM";
+export const GET_EMAILCRM = "GET_EMAILCRM";
 
+export interface EmailCRMState {
+  isFetching: boolean;
+  emailCrm: EmailCRM;
+  emailCrmList: [];
+  error?: null;
+  deleted?: boolean;
+  updated?: boolean;
+}
+
+interface GetEmailCRMAction {
+  type: typeof GET_EMAILCRM;
+  payload: EmailCRM;
+  error?: string;
+}
+
+interface ListEmailCRMAction {
+  type: typeof LIST_EMAILCRM;
+  payload: EmailCRM[];
+}
+
+export type EmailCRMActions =
+  | typeof LIST_EMAILCRM
+  | typeof GET_EMAILCRM;
+
+export type EmailCRMActionTypes =
+  | GetEmailCRMAction
+  | ListEmailCRMAction;
   

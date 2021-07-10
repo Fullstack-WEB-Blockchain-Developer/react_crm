@@ -1,11 +1,10 @@
-import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import React from "react";
-import SearchInput, {createFilter} from 'react-search-input';
+import SearchInput from 'react-search-input';
 import SimpleDatepicker from "../SimpleDatepicker";
 import Paper from "@material-ui/core/Paper";
 import "./search_input.css"
-import { List, ListItem, ListItemText, Grid, CssBaseline, Drawer } from "@material-ui/core";
-import FullWidthTabs from "../FullWidthTabs";
+import { List, ListItem, CssBaseline } from "@material-ui/core";
 import LeadCard from "./leadCard";
 
 // const KEYS_TO_FILTERS = ['user.name', 'subject', 'dest.name']

@@ -1,15 +1,11 @@
 import React from "react";
-import Assessment from '@material-ui/icons/Assessment';
-import PermIdentity from '@material-ui/icons/PermIdentity';
 import SettingsPower from '@material-ui/icons/SettingsPower';
 import VpnKey from '@material-ui/icons/VpnKey';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import ChevronRight from '@material-ui/icons/ChevronRight';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { cyan, pink, purple } from '@material-ui/core/colors';
 import StoreOutlinedIcon from '@material-ui/icons/StoreOutlined';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';

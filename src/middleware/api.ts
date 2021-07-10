@@ -1,11 +1,11 @@
 /* eslint-disable */
-import { DB } from "./demo-db"
-
+import { DB } from "./demo-db";
 import { Entity } from '../types';
 import url from 'url';
 import querystring from 'querystring';
 import { HttpMethod } from "../store/types";
 import { getSeachFilters } from "../utils/app-utils";
+import axios from 'axios';
 
 const ds = Object.assign({}, DB)
 const EXPAND = "_expand"
@@ -47,60 +47,67 @@ function parseRequest(req: string) {
 
 export function getData(action: string): Promise<TODO> {
   const { model, id, exp , filters} = parseRequest(action)
-  return new Promise(function (resolve, _reject) {
-    const expandModel = exp
-      ? exp === "category"
-        ? "categories"
-        : exp + "s"
-      : exp;
+  if(model === 'emailcrms') {  // added 7/10
+    return axios.get(`http://localhost:8080/getEmailCrm`)
+      .then(res => {
+        return {data: JSON.parse(JSON.stringify(res.data))}
+      })
+  } else {
+    return new Promise(function (resolve, _reject) {
+      const expandModel = exp
+        ? exp === "category"
+          ? "categories"
+          : exp + "s"
+        : exp;
 
-    
+      
       let result: TODO;
-    let expand: string, expandId: number;
-    
-    if (model in ds) {
-      if (id && id > 0) {
-        result =
-          ds[model][ds[model].findIndex((d: { id: number }) => d.id === id)];
-        if (expandModel) {
-          expand =
-            expandModel === "categories"
-              ? "category"
-              : expandModel.substr(0, expandModel.length - 1);
-          expandId = result[expand + "Id"] as number;
-          result[expand] =
-            ds[expandModel][
-            ds[expandModel].findIndex((d: { id: number }) => d.id === expandId)
-            ];
-        }
-      } else {
-        result = ds[model].map((m: { [x: string]: TODO }) => {
+      let expand: string, expandId: number;
+      
+      if (model in ds) {
+        if (id && id > 0) {
+          result =
+            ds[model][ds[model].findIndex((d: { id: number }) => d.id === id)];
           if (expandModel) {
             expand =
               expandModel === "categories"
                 ? "category"
                 : expandModel.substr(0, expandModel.length - 1);
-            expandId = m[expand + "Id"] as number;
-            m[expand] =
+            expandId = result[expand + "Id"] as number;
+            result[expand] =
               ds[expandModel][
               ds[expandModel].findIndex((d: { id: number }) => d.id === expandId)
               ];
           }
-          return m;
-        });
-      }
+        } else {
+          result = ds[model].map((m: { [x: string]: TODO }) => {
+            if (expandModel) {
+              expand =
+                expandModel === "categories"
+                  ? "category"
+                  : expandModel.substr(0, expandModel.length - 1);
+              expandId = m[expand + "Id"] as number;
+              m[expand] =
+                ds[expandModel][
+                ds[expandModel].findIndex((d: { id: number }) => d.id === expandId)
+                ];
+            }
+            return m;
+          });
+        }
 
-      if (filters !== null && filters !== undefined
-        && Object.keys(filters).length > 0) {
-        result = result.filter(
-          row => Object.keys(filters).every(
-            prop => filters[prop](prop,row)
+        if (filters !== null && filters !== undefined
+          && Object.keys(filters).length > 0) {
+          result = result.filter(
+            row => Object.keys(filters).every(
+              prop => filters[prop](prop,row)
+            )
           )
-        )
+        }
       }
-    }
-    setTimeout(resolve, 300, { data: result });
-  });
+      setTimeout(resolve, 300, { data: result });
+    });
+  }
 }
 
 export function postData(action: string, data: Entity): Promise<TODO> {
